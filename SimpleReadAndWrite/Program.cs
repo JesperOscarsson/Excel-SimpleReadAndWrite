@@ -19,6 +19,7 @@ namespace SimpleReadAndWrite
                 Console.WriteLine("EXCEL could not be started. Check that your office installation and project references are correct.");
                 return;
             }
+            
             xlApp.Visible = true;
 
             Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
@@ -29,9 +30,33 @@ namespace SimpleReadAndWrite
                 Console.WriteLine("Worksheet could not be created. Check that your office installation and project references are correct.");
             }
 
-            ws.Name = "testSheet";
+            // Menu/Flow
 
+            bool loop = true;
+
+            while (loop == true)
+            {
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("1. Run");
+                string answer = Console.ReadLine();
+
+                switch (answer)
+                {
+                    case "1":
+                        Run();
+                        loop = false;
+                        break;
+                }
+
+            }
+
+            ws.Name = "testSheet";
             //wb.SaveAs(Filename: "testExcelFile");
+        }
+
+        public static void Run()
+        {
+            Console.WriteLine("Run has been executed");
         }
     }
 }
