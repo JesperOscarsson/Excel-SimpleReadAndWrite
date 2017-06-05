@@ -10,6 +10,8 @@ namespace SimpleReadAndWrite
 {
     class Program
     {
+        static bool loop;
+
         static void Main(string[] args)
         {
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -32,19 +34,21 @@ namespace SimpleReadAndWrite
 
             // Menu/Flow
 
-            bool loop = true;
+            loop = true;
 
             while (loop == true)
             {
                 Console.WriteLine("What do you want to do?");
-                Console.WriteLine("1. Run");
+                Console.WriteLine("1. Run\n2. Exit");
                 string answer = Console.ReadLine();
 
                 switch (answer)
                 {
                     case "1":
                         Run();
-                        loop = false;
+                        break;
+                    case "2":
+                        Exit();
                         break;
                 }
 
@@ -57,6 +61,11 @@ namespace SimpleReadAndWrite
         public static void Run()
         {
             Console.WriteLine("Run has been executed");
+        }
+
+        public static void Exit()
+        {
+            loop = false;
         }
     }
 }
