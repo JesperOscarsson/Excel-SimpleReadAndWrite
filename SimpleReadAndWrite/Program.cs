@@ -20,7 +20,7 @@ namespace SimpleReadAndWrite
                 return;
             }
             
-            xlApp.Visible = true;
+            //xlApp.Visible = true;
 
             Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             Worksheet ws = (Worksheet)wb.Worksheets[1];
